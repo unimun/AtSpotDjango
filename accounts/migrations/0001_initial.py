@@ -6,7 +6,6 @@ from django.conf import settings
 import django.core.validators
 from django.db import migrations, models
 import django.db.models.deletion
-import imagekit.models.fields
 
 
 class Migration(migrations.Migration):
@@ -25,7 +24,7 @@ class Migration(migrations.Migration):
                 ('nickname', models.CharField(max_length=10, unique=True)),
                 ('point', models.IntegerField(default=0, validators=[django.core.validators.MinValueValidator(0)])),
                 ('level', models.IntegerField(default=1, validators=[django.core.validators.MinValueValidator(0)])),
-                ('img', imagekit.models.fields.ProcessedImageField(blank=True, null=True, upload_to='accounts/%Y/%m/%d')),
+                ('img', models.ImageField(blank=True, null=True, upload_to='accounts/%Y/%m/%d')),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
