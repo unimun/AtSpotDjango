@@ -16,7 +16,14 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+from rest_framework.routers import DefaultRouter
+from qna import views
+
+router = DefaultRouter()
+router.register(r'inquiries', views.InquiryViewSet)
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^accounts/', include('accounts.urls')),
+    url(r'^', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
