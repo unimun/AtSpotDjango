@@ -18,10 +18,12 @@ from django.contrib import admin
 
 from rest_framework.routers import DefaultRouter
 from qna.views import InquiryViewSet
+from qna.views import AnswerViewSet
 from accounts.views import ProfileViewSet
 
 router = DefaultRouter()
 router.register(r'inquiries', InquiryViewSet)
+router.register(r'answers', AnswerViewSet)
 router.register(r'profiles', ProfileViewSet)
 
 urlpatterns = [
