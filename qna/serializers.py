@@ -1,9 +1,9 @@
-from rest_framework import serializers  
+from rest_framework import serializers
 from qna.models import Inquiry
 from qna.models import Answer
 
 
-class InquirySerializer(serializers.ModelSerializer):  
+class InquirySerializer(serializers.ModelSerializer):
     class Meta:
         model = Inquiry
         fields = ('id', 'contents', 'point', 'created_on', 'owner')
@@ -11,4 +11,4 @@ class InquirySerializer(serializers.ModelSerializer):
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
-        fields = ('id', 'owner', 'inquiry', 'image')
+        fields = ('id', 'owner', 'inquiry', 'contents', 'image')
