@@ -6,4 +6,4 @@ staticfiles
 db.sqlite3
 sb.sqlite3
 .DS_Store
-.jpg
+*.jpg
