@@ -1,0 +1,1 @@
+web: gunicorn AtSpot.wsgi --log-file -
