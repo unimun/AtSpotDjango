@@ -15,17 +15,16 @@ class InquiryViewSet(viewsets.ModelViewSet):
     serializer_class = InquirySerializer
 
     def perform_create(self, serializer):
-            serializer.save(owner=Profile.objetcs.get(user=self.request.user))
+            serializer.save(owner=Profile.objects.get(user=self.request.user))
 
 class AnswerViewSet(viewsets.ModelViewSet):
     queryset = Answer.objects.all()
     serializer_class = AnswerSerializer
 
-
 # @detail_route(renderer_classes=[renderers.StaticHTMLRenderer])
-#     def answers_to_inquiry(self, request, *args, **kwargs):
+#     def related_answer(self, request, *args, **kwargs):
 #         snippet = self.objects.filter()
 #         return Response(snippet.highlighted)
 
     def perform_create(self, serializer):
-            serializer.save(owner=Profile.objetcs.get(user=self.request.user))
+            serializer.save(owner=Profile.objects.get(user=self.request.user))
