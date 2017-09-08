@@ -1,5 +1,4 @@
 from __future__ import unicode_literals
-
 from django.db import models
 from accounts.models import Profile
 
@@ -30,7 +29,7 @@ class Inquiry(models.Model):
 class Answer(models.Model):
 
     owner = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
+        Profile,
         on_delete=models.CASCADE,
         related_name='answer',
     )

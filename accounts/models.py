@@ -18,5 +18,5 @@ class Profile(models.Model):
             MinValueValidator(0),
         ]
     )
-    img = ImageField()
+    img = models.ImageField()
 
