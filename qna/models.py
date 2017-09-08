@@ -1,18 +1,31 @@
 from __future__ import unicode_literals
 from django.db import models
 from accounts.models import Profile
+from django.forms import ValidationError
 
-# Create your models here.
+def lnglat_validator(value):
+    if not re.match(r'^(\d+\.?\d*)$', value):
+        raise ValidationError('Invalid LagLat Type')
 
 
 
 class Inquiry(models.Model):
+    STATUS_CHOICES = (
+        ('o', 'Open'),
+        ('p', 'Pending'),
+        ('c', 'Close'),
+    )
 
     owner = models.ForeignKey(
         Profile,
         on_delete=models.CASCADE,
         related_name='inquiry',
     )
+
+    location = models.CharField(max_length=20)
+    lng = models.CharField(max_length=30, validators=[lnglat_validator])
+    lat = models.CharField(max_length=30, validators=[lnglat_validator])
+    status = models.CharField(max_length=1, choices=STATUS_CHOICES, default='o')
 
     contents = models.CharField(max_length=100, null=True)
     point = models.IntegerField(null=False)
