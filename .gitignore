@@ -1,8 +1,8 @@
 .vscode
 venv
 *.pyc
-staticfiles
 .env
+staticfiles
 db.sqlite3
 sb.sqlite3
 .DS_Store
