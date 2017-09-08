@@ -17,10 +17,12 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from rest_framework.routers import DefaultRouter
-from qna import views
+from qna.views import InquiryViewSet
+from accounts.views import ProfileViewSet
 
 router = DefaultRouter()
-router.register(r'inquiries', views.InquiryViewSet)
+router.register(r'inquiries', InquiryViewSet)
+router.register(r'profiles', ProfileViewSet)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
