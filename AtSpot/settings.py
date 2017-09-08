@@ -49,6 +49,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # django app
+    'rest_framework',
+    'qna',
 )
 
 MIDDLEWARE_CLASSES = (
