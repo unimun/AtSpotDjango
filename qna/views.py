@@ -38,7 +38,7 @@ class AnswerViewSet(viewsets.ModelViewSet):
             serializer.save(owner=Profile.objects.get(user=self.request.user))
 
     @detail_route(renderer_classes=[renderers.JSONRenderer])
-    def answer_to_inquiry(self, request, pk):
-        answer = Answer.objects.filter(inquiry=pk).last()
-        serializer = AnswerSerializer(answer)
+    def answers_to_inquiry(self, request, pk):
+        answers = Answer.objects.filter(inquiry=pk)
+        serializer = AnswerSerializer(answers, many=True)
         return Response(serializer.data)
