@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('contents', models.CharField(max_length=100)),
+                ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('image', models.ImageField(upload_to='')),
             ],
         ),

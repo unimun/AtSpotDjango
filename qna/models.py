@@ -51,3 +51,7 @@ class Answer(models.Model):
     )
     contents = models.CharField(max_length=100, null=False)
     image = models.ImageField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('created_on', )
